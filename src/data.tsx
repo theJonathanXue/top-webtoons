@@ -1,4 +1,4 @@
-const all_webtoon_data = [
+const allWebtoonData = [
   {
     url: 'https://www.webtoons.com/en/romance/the-makeup-remover/list?title_no=2186',
     title: 'The Makeup Remover',
@@ -8891,4 +8891,4 @@ const all_webtoon_data = [
   },
 ]
 
-export default all_webtoon_data
+export default allWebtoonData

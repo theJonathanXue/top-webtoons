@@ -4,7 +4,6 @@ import allWebtoonData from '../data'
 import './Table.css'
 import { ReactComponent as ChevronIcon } from '../icons/chevron.svg'
 import { ReactComponent as ArrowIcon } from '../icons/arrow.svg'
-import { ReactComponent as BoltIcon } from '../icons/bolt.svg'
 import { ReactComponent as CaretIcon } from '../icons/caret.svg'
 
 function Home() {
@@ -26,9 +25,9 @@ function Home() {
   }
 
   useEffect(() => {
-    let filteredWebtoons = allWebtoonData
+    let filteredWebtoons = allWebtoonData.sort(sortByField)
     if (filterBy !== 'all') {
-      filteredWebtoons = allWebtoonData.filter(
+      filteredWebtoons = filteredWebtoons.filter(
         (webtoon) => webtoon.genre === filterBy
       )
     }
@@ -143,14 +142,14 @@ function DropdownMenu({ sortBy, setSortBy, setFilterBy }) {
           <DropdownItem
             leftIcon={<ChevronIcon />}
             rightIcon={<ChevronIcon />}
-            goToMenu='settings'
+            goToMenu='Sort'
           >
             Sort
           </DropdownItem>
           <DropdownItem
-            leftIcon='🦧'
+            leftIcon={<ChevronIcon />}
             rightIcon={<ChevronIcon />}
-            goToMenu='animals'
+            goToMenu='Filter'
           >
             Filter
           </DropdownItem>
@@ -158,7 +157,7 @@ function DropdownMenu({ sortBy, setSortBy, setFilterBy }) {
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === 'settings'}
+        in={activeMenu === 'Sort'}
         timeout={500}
         classNames='menu-secondary'
         unmountOnExit
@@ -181,7 +180,7 @@ function DropdownMenu({ sortBy, setSortBy, setFilterBy }) {
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === 'animals'}
+        in={activeMenu === 'Filter'}
         timeout={500}
         classNames='menu-secondary'
         unmountOnExit

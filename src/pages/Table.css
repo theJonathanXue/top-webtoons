@@ -164,12 +164,13 @@ a {
 
 /* grid styles */
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #353535;
-  font-size: 3rem;
+  font-size: 1rem;
   color: #fff;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
     rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
@@ -190,6 +191,21 @@ a {
   transform: translateY(-3px) scale(1.1);
 }
 
+.card-rank {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.metrics {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0px;
+  background-color: black;
+}
+
 .photo-grid {
   margin: 2rem;
   display: grid;
@@ -199,7 +215,7 @@ a {
   grid-auto-rows: 240px;
 }
 
-/* Medium screens */
+/* Medium screens
 @media screen and (min-width: 600px) {
   .card-tall {
     grid-row: span 2 / auto;
@@ -208,4 +224,4 @@ a {
   .card-wide {
     grid-column: span 2 / auto;
   }
-}
+} */

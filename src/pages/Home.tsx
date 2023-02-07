@@ -6,6 +6,25 @@ import { ReactComponent as ChevronIcon } from '../icons/chevron.svg'
 import { ReactComponent as ArrowIcon } from '../icons/arrow.svg'
 import { ReactComponent as CaretIcon } from '../icons/caret.svg'
 
+function parseStringWithMillionsAndBillions(str) {
+  // Remove all commas from the string
+  str = str.replace(/,/g, '')
+
+  // Check if the string contains the "M" symbol
+  if (str.indexOf('M') > -1) {
+    // If it does, remove the "M" symbol and multiply the number by 1 million
+    str = str.replace('M', '')
+    return parseFloat(str) * 1000000
+  } else if (str.indexOf('B') > -1) {
+    // If it contains the "B" symbol, remove it and multiply the number by 1 billion
+    str = str.replace('B', '')
+    return parseFloat(str) * 1000000000
+  } else {
+    // If it doesn't contain either symbol, just parse the string as an integer
+    return parseFloat(str)
+  }
+}
+
 function Home() {
   const [sortBy, setSortBy] = useState('rating')
   const [filterBy, setFilterBy] = useState('all')
@@ -15,10 +34,41 @@ function Home() {
 
   // function for sorting by selected fields
   function sortByField(webtoon1, webtoon2) {
-    if (parseFloat(webtoon2[sortBy]) > parseFloat(webtoon1[sortBy])) {
+    // sort by views or subscribed
+    if (sortBy !== 'rating') {
+      if (
+        parseStringWithMillionsAndBillions(webtoon2[sortBy]) >
+        parseStringWithMillionsAndBillions(webtoon1[sortBy])
+      ) {
+        return 1
+      }
+      if (
+        parseStringWithMillionsAndBillions(webtoon2[sortBy]) <
+        parseStringWithMillionsAndBillions(webtoon1[sortBy])
+      ) {
+        return -1
+      }
+    }
+
+    // sort by rating
+    if (parseFloat(webtoon2.rating) > parseFloat(webtoon1.rating)) {
       return 1
     }
-    if (parseFloat(webtoon2[sortBy]) < parseFloat(webtoon1[sortBy])) {
+    if (parseFloat(webtoon2.rating) < parseFloat(webtoon1.rating)) {
+      return -1
+    }
+
+    // if ratings are equal, sort by subscribed
+    if (
+      parseStringWithMillionsAndBillions(webtoon2.subscribed_count) >
+      parseStringWithMillionsAndBillions(webtoon1.subscribed_count)
+    ) {
+      return 1
+    }
+    if (
+      parseStringWithMillionsAndBillions(webtoon2.subscribed_count) <
+      parseStringWithMillionsAndBillions(webtoon1.subscribed_count)
+    ) {
       return -1
     }
     return 0
@@ -41,12 +91,13 @@ function Home() {
           <DropdownMenu
             sortBy={sortBy}
             setSortBy={setSortBy}
+            filterBy={filterBy}
             setFilterBy={setFilterBy}
           ></DropdownMenu>
         </NavItem>
       </Navbar>
       <div className='photo-grid'>
-        {sortedWebtoonData.map((webtoon) => {
+        {sortedWebtoonData.map((webtoon, index) => {
           return (
             <a
               href={webtoon.url}
@@ -58,7 +109,8 @@ function Home() {
                 className='card'
                 style={{ backgroundImage: `url(${webtoon.img_url})` }}
               >
-                {webtoon.rating}
+                <div className='card-rank'>{index + 1}</div>
+                <div className='metrics'>{`⭐ ${webtoon.rating} 👀 ${webtoon.views_count} ✅ ${webtoon.subscribed_count}`}</div>
               </div>
             </a>
           )
@@ -90,7 +142,7 @@ function NavItem(props) {
   )
 }
 
-function DropdownMenu({ sortBy, setSortBy, setFilterBy }) {
+function DropdownMenu({ sortBy, setSortBy, filterBy, setFilterBy }) {
   const [activeMenu, setActiveMenu] = useState('main')
   const [menuHeight, setMenuHeight] = useState(null)
   const dropdownRef = useRef(null)
@@ -110,6 +162,11 @@ function DropdownMenu({ sortBy, setSortBy, setFilterBy }) {
       <a
         href='#'
         className='menu-item'
+        style={{
+          ...((props.sort === sortBy || props.filter === filterBy) && {
+            color: 'red',
+          }),
+        }}
         onClick={() => {
           if (props.goToMenu) {
             setActiveMenu(props.goToMenu)

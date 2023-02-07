@@ -28,6 +28,7 @@ function parseStringWithMillionsAndBillions(str) {
 function Home() {
   const [sortBy, setSortBy] = useState('rating')
   const [filterBy, setFilterBy] = useState('all')
+  const [displayMetrics, setDisplayMetrics] = useState(true)
   const [sortedWebtoonData, setSortedWebtoonData] = useState(
     allWebtoonData.sort(sortByField)
   )
@@ -93,6 +94,8 @@ function Home() {
             setSortBy={setSortBy}
             filterBy={filterBy}
             setFilterBy={setFilterBy}
+            displayMetrics={displayMetrics}
+            setDisplayMetrics={setDisplayMetrics}
           ></DropdownMenu>
         </NavItem>
       </Navbar>
@@ -109,8 +112,12 @@ function Home() {
                 className='card'
                 style={{ backgroundImage: `url(${webtoon.img_url})` }}
               >
-                <div className='card-rank'>{index + 1}</div>
-                <div className='metrics'>{`⭐ ${webtoon.rating} 👀 ${webtoon.views_count} ✅ ${webtoon.subscribed_count}`}</div>
+                {displayMetrics && (
+                  <>
+                    <div className='card-rank'>{index + 1}</div>
+                    <div className='metrics'>{`⭐ ${webtoon.rating} 👀 ${webtoon.views_count} ✅ ${webtoon.subscribed_count}`}</div>
+                  </>
+                )}
               </div>
             </a>
           )
@@ -142,7 +149,14 @@ function NavItem(props) {
   )
 }
 
-function DropdownMenu({ sortBy, setSortBy, filterBy, setFilterBy }) {
+function DropdownMenu({
+  sortBy,
+  setSortBy,
+  filterBy,
+  setFilterBy,
+  displayMetrics,
+  setDisplayMetrics,
+}) {
   const [activeMenu, setActiveMenu] = useState('main')
   const [menuHeight, setMenuHeight] = useState(null)
   const dropdownRef = useRef(null)
@@ -177,6 +191,9 @@ function DropdownMenu({ sortBy, setSortBy, filterBy, setFilterBy }) {
           if (props.filter) {
             setFilterBy(props.filter)
           }
+          if (props.displayMetrics) {
+            setDisplayMetrics(!displayMetrics)
+          }
         }}
       >
         <span className='icon-button'>{props.leftIcon}</span>
@@ -209,6 +226,9 @@ function DropdownMenu({ sortBy, setSortBy, filterBy, setFilterBy }) {
             goToMenu='Filter'
           >
             Filter
+          </DropdownItem>
+          <DropdownItem leftIcon='👀' displayMetrics='true'>
+            Toggle Metrics
           </DropdownItem>
         </div>
       </CSSTransition>

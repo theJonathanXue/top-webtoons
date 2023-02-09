@@ -28,7 +28,7 @@ function parseStringWithMillionsAndBillions(str) {
 function Home() {
   const [sortBy, setSortBy] = useState('rating')
   const [filterBy, setFilterBy] = useState('all')
-  const [displayMetrics, setDisplayMetrics] = useState(true)
+  const [displayMetrics, setDisplayMetrics] = useState(false)
   const [sortedWebtoonData, setSortedWebtoonData] = useState(
     allWebtoonData.sort(sortByField)
   )
@@ -88,6 +88,16 @@ function Home() {
   return (
     <>
       <Navbar>
+        <div className='navbar-brand'>
+          <a href='https://www.webtoons.com/en/'>
+            <img
+              className='logo'
+              src='https://upload.wikimedia.org/wikipedia/commons/0/09/Naver_Line_Webtoon_logo.png'
+              alt='webtoon logo'
+            />
+          </a>
+          <div>Webtoon Metrics</div>
+        </div>
         <NavItem icon={<CaretIcon />}>
           <DropdownMenu
             sortBy={sortBy}

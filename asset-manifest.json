@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/topwebtoon/static/css/main.5339944f.css",
-    "main.js": "/topwebtoon/static/js/main.3ae534e9.js",
-    "index.html": "/topwebtoon/index.html",
-    "static/media/chevron.svg": "/topwebtoon/static/media/chevron.388b82b9cad3b6a5a9fd72259a20f9e4.svg",
-    "static/media/arrow.svg": "/topwebtoon/static/media/arrow.65700a59704bec6ec3e311ee1605da3a.svg",
-    "static/media/caret.svg": "/topwebtoon/static/media/caret.5f8324231bf361037f1dd6139f234a13.svg",
-    "main.5339944f.css.map": "/topwebtoon/static/css/main.5339944f.css.map",
-    "main.3ae534e9.js.map": "/topwebtoon/static/js/main.3ae534e9.js.map"
+    "main.css": "/top-webtoons/static/css/main.5339944f.css",
+    "main.js": "/top-webtoons/static/js/main.ade28840.js",
+    "index.html": "/top-webtoons/index.html",
+    "static/media/chevron.svg": "/top-webtoons/static/media/chevron.388b82b9cad3b6a5a9fd72259a20f9e4.svg",
+    "static/media/arrow.svg": "/top-webtoons/static/media/arrow.65700a59704bec6ec3e311ee1605da3a.svg",
+    "static/media/caret.svg": "/top-webtoons/static/media/caret.5f8324231bf361037f1dd6139f234a13.svg",
+    "main.5339944f.css.map": "/top-webtoons/static/css/main.5339944f.css.map",
+    "main.ade28840.js.map": "/top-webtoons/static/js/main.ade28840.js.map"
   },
   "entrypoints": [
     "static/css/main.5339944f.css",
-    "static/js/main.3ae534e9.js"
+    "static/js/main.ade28840.js"
   ]
 }

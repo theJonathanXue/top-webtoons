@@ -6,7 +6,7 @@ Project includes a multi-level animated dropdown and webtoon thumbnails displaye
 
 # Scraper
 
-Webtoon Data scraped using Python and BeautifulSoup4. Images scraped from google images using Selenium. Data was scraped on Jan 28, 2023.
+I wrote a [Python script](https://github.com/theJonathanXue/webtoon-rating-scraper) to scrape the data for this project. Webtoon Data were scraped using BeautifulSoup4, while Webtoon thumbnails were scraped from google images using Selenium. Data was scraped on Jan 28, 2023.
 
 [Live Demo](https://thejonathanxue.github.io/top-webtoons/) :point_left:
 

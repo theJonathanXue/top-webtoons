@@ -1,6 +1,6 @@
 {
-  "homepage": "https://thejonathanxue.github.io/topwebtoons",
-  "name": "webtoon-ratings-frontend",
+  "homepage": "https://thejonathanxue.github.io/top-webtoons",
+  "name": "top-webtoons",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

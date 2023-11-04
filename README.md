@@ -29,14 +29,15 @@ Comparing the pros and cons of using a relational vs. non-relational database fo
 | **High Performance** | Well-suited for traditional workloads and complex operations. | Designed for high-performance read and write operations for dynamic data. |
 | **Dynamic Data** | Limited flexibility for accommodating dynamic data changes. | Well-suited for storing evolving metrics like ratings, views, and subscribed counts. |
 
-
+I decided to go with a relational database since I have decided on the structure of my data and defined the relationships. I went with a MySQL database as I've been wanting to work with another relational database other than PostgreSQL.
 
 # TODO
 Other features I want to implement:
-- database with scraped webtoon data
+- Database with scraped webtoon data
 - Node and Express API with CRUD operations to the database
-- Host frontend and backend on AWS
+- Host frontend, backend, and database on AWS
 - Setup CI/CD pipelines
+- Get feedback from users online
 
 ## Getting started
 

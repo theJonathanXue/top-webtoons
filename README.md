@@ -10,6 +10,13 @@ Project includes a multi-level animated dropdown and webtoon thumbnails displaye
 
 I wrote a [Python script](https://github.com/theJonathanXue/webtoon-rating-scraper) to scrape the data for this project. Webtoon Data were scraped using BeautifulSoup4, while Webtoon thumbnails were scraped from google images using Selenium. Data was scraped on Jan 28, 2023.
 
+# TODO:
+Other features I want to implement:
+- database with scraped webtoon data
+- Node and Express API with CRUD operations to the database
+- Host frontend and backend on AWS
+- Setup CI/CD pipelines
+
 ## Getting started
 
 ```

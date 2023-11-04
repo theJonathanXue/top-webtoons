@@ -18,29 +18,17 @@ The database for this project is responsible for storing Webtoon metrics and met
 With this in mind, I want a database that is suitable for my data schema, scalable, performant and flexible. 
 
 Comparing the pros and cons of using a relational vs. non-relational database for webtoon data:
-| Relational Database (Pros) | |
-| --- | --- |
-| Structured Data | Relational databases are well-suited for structured data, making them an ideal choice for storing information like webtoon summaries, author details, number of episodes, and release dates. |
-| Data Integrity | Relational databases maintain ACID compliance, ensuring data integrity, transactional consistency, and referential integrity, which is crucial for maintaining relationships between entities like webtoons, genres, and authors. |
-| Complex Queries | SQL databases offer powerful querying capabilities, allowing you to perform complex queries, aggregations, and joins easily. This is advantageous when you need to retrieve and analyze data across various tables. |
-| Relational Data | Relational databases excel at managing data that has well-defined relationships, such as the connection between webtoons, authors, and genres. |
+| Aspect | Relational Database | Non-Relational Database |
+| --- | --- | --- |
+| **Structured Data** | Suitable for storing structured data such as webtoon summaries, author details, etc. | Offers schema flexibility, allowing storage of unstructured or semi-structured data. |
+| **Data Integrity** | Maintains ACID compliance for data integrity and referential integrity. | Sacrifices some level of ACID compliance for scalability and flexibility. |
+| **Complex Queries** | Offers powerful querying capabilities for complex operations and analysis. | May not offer the same level of query complexity as relational databases. |
+| **Relational Data** | Excels at managing data with well-defined relationships. | Well-suited for handling dynamic data and metrics like ratings and views. |
+| **Schema Rigidity** | Requires a predefined schema, making it less flexible for dynamic data. | Provides schema flexibility, allowing accommodation of evolving webtoon metrics. |
+| **Scalability Challenges** | Scaling horizontally can be complex and expensive. | Highly scalable, suitable for handling high volumes of dynamic data. |
+| **High Performance** | Well-suited for traditional workloads and complex operations. | Designed for high-performance read and write operations for dynamic data. |
+| **Dynamic Data** | Limited flexibility for accommodating dynamic data changes. | Well-suited for storing evolving metrics like ratings, views, and subscribed counts. |
 
-| Relational Database (Cons) | |
-| --- | --- |
-| Schema Rigidity | Relational databases require a predefined schema, making it less flexible for handling dynamic data, like changing metrics for webtoons, without frequent schema modifications. |
-| Scalability Challenges | While they can handle traditional workloads well, scaling relational databases horizontally can be complex and expensive. This can become a limitation as your application and data grow. |
-
-| Non-Relational Database (Pros) | |
-| --- | --- |
-| Schema Flexibility | NoSQL databases provide schema flexibility, allowing you to store unstructured or semi-structured data, making them ideal for accommodating evolving webtoon metrics. |
-| Scalability | Non-relational databases are highly scalable, making them suitable for handling high volumes of dynamic data and accommodating growth without major disruptions. |
-| High Performance | NoSQL databases are designed for high-performance read and write operations, which is valuable for quickly updating and retrieving webtoon metrics that may experience frequent changes. |
-| Dynamic Data | NoSQL databases are well-suited for dynamic data, making them a good choice for storing metrics like ratings, views, and subscribed counts. |
-
-| Non-Relational Database (Cons) | |
-| --- | --- |
-| Lack of ACID Compliance | Most NoSQL databases sacrifice some level of ACID compliance for scalability and flexibility. This means they may not guarantee the same level of transactional integrity as relational databases. |
-| Complex Queries | Non-relational databases may not offer the same level of query complexity and aggregation capabilities as relational databases, making them less suitable for data analysis across multiple tables. |
 
 
 # TODO

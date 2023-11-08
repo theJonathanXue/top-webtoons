@@ -2,7 +2,7 @@
 
 [Live Demo](https://thejonathanxue.github.io/top-webtoons/) :point_left:
 
-I created this project to sort [Webtoons](https://www.webtoons.com/en/) by "Ratings", "Views", and "Subscribers" since the official website only allows you to sort by "Popularity", "Likes", and "Dates". You can also filter by the [official genres](https://www.webtoons.com/en/genre#).
+I created this project to sort and filter [Webtoons](https://www.webtoons.com/en/) more comprehensively. We can sort by "Ratings", "Views", and "Subscribers" while the official website only allows you to sort by "Popularity", "Likes", and "Dates". You can also filter by the [official genres](https://www.webtoons.com/en/genre#).
 
 Project includes a multi-level animated dropdown and webtoon thumbnails displayed in a responsive grid.
 
